@@ -217,7 +217,7 @@ async def add_to_cart(c: types.CallbackQuery):
 
     await db.add_good_to_cart(c.from_user.id, good, int(brand))
 
-    goods_data = await get_good_card_in_catalog(int(brand), int(page) + 1)
+    goods_data = get_good_card_in_catalog(int(brand), int(page) + 1)
 
     if goods_data:
         count_in_cart = await db.count_goods_in_cart(

@@ -45,7 +45,7 @@ def get_market_markup(
 
     paging.append(
         InlineKeyboardButton(
-            text="1/29",
+            text=f"{page}/{total_pages}",
             callback_data=" "
         )
     )
