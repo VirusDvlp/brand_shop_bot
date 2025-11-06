@@ -3,7 +3,7 @@ from .api import cache_manager
 
 
 class CachedDataReader:
-    def __init__(self, cache_manager: SheetCacheManager):
+    def __init__(self, cache_manager):
         self.cache_manager = cache_manager
 
     def get_record(self, category, record_id):
