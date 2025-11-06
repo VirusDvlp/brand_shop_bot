@@ -21,11 +21,11 @@ class DataBase:
 
     async def select_all(self, query: str, *parameters):
         cursor = await self.__execute(query, *parameters)
-        return cursor.fetchall()
+        return await cursor.fetchall()
 
     async def select_one(self, query: str, *parameters):
         cursor = await self.__execute(query, *parameters)
-        return cursor.fetchone()
+        return await cursor.fetchone()
 
     async def __execute(self, query: str, *parameters):
         try:
