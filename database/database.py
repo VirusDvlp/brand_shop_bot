@@ -89,14 +89,14 @@ AND brand = %s LIMIT 1""",
         """Получение содержимого корзины пользователя, отдельно высчитывается количество каждого отдельного товара и сумма каждого отдельного товара"""
         return await self.select_all(
             '''SELECT `good_id`, `user_id`, count(`good_id`) as number, `brand` FROM `cart`
-WHERE `users`.`user_id` = %s GROUP BY `good_id`''',
+WHERE `user_id` = %s GROUP BY `good_id`''',
             (user_id,)
         )
 
     async def count_goods_in_cart(self, user_id, good_id, brand):
         cart_info = await self.select_one(
             """
-SELECT count(`id`) as `number` FROM `cart` WHERE `users`.`user_id` = %s
+SELECT count(`id`) as `number` FROM `cart` WHERE `user_id` = %s
 AND `good_id` = %s           
 """,
             (user_id, good_id)
