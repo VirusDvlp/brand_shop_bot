@@ -5,8 +5,16 @@ from bot import bot, dp
 from handlers import register_all_handlers
 from utils.logger import get_bot_logger, setup_logger
 
+from database import db
+from google_sheets.api import cache_manager
+
 
 async def on_startup():
+    setup_logger()
+    await db.create_tables()
+    await cache_manager.initialize_cache()
+    await cache_manager.auto_update_cache()
+    
     register_all_handlers(dp)
 
     get_bot_logger().info('Бот начал свою работу')
@@ -17,7 +25,6 @@ async def on_shutdown():
 
 
 async def main():
-    setup_logger()
     
     dp.startup.register(on_startup)
     dp.shutdown.register(on_shutdown)

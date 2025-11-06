@@ -7,6 +7,8 @@ import asyncio
 
 from config import settings, categories
 
+from utils.logger import get_bot_logger
+
 class AsyncSheetCacheManager:
 
     def __init__(self, spreadsheet_name, categories, service_account_file, cache_dir="data/cache", update_interval=3600):
@@ -45,22 +47,20 @@ class AsyncSheetCacheManager:
         return False
 
     async def initialize_cache(self):
-        """Инициализация кэша при старте"""
         for category in self.categories:
             if not await self.load_cache_from_file(category):
                 await self.load_sheet(category)
 
     async def auto_update_cache(self):
-        """Асинхронное автообновление всех категорий каждые update_interval секунд"""
         while True:
             current_time = time.time()
             if current_time - self.last_update_time >= self.update_interval:
-                print("[Async] Автообновление всех категорий...")
+                get_bot_logger().info("Автообновление всех категорий...")
                 for category in self.categories:
                     try:
                         await self.load_sheet(category)
                     except Exception as e:
-                        print(f"[Async] Ошибка при обновлении категории '{category}':", e)
+                        get_bot_logger().error(f"[Async] Ошибка при обновлении категории '{category}':", e)
             await asyncio.sleep(60)
 
 

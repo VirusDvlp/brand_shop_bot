@@ -25,4 +25,10 @@ class Settings(BaseSettings):
 
 settings = Settings()
 
-sheet_categories = ["BEAUTYGEL", "Biogel"]
+sheet_categories = [
+    "BEAUTYGEL",
+    "Biogel",
+    "LemonBottle",
+    "WIQO",
+    "НЕОКОЛЛ"
+]
