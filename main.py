@@ -13,7 +13,7 @@ async def on_startup():
     setup_logger()
     await db.create_tables()
     await cache_manager.initialize_cache()
-    await cache_manager.auto_update_cache()
+    asyncio.create_task(cache_manager.auto_update_cache())
     
     register_all_handlers(dp)
 
