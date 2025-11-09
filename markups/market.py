@@ -8,10 +8,12 @@ async def get_brand_list_markup():
     inline_keyboard = []
     for b in brands:
         inline_keyboard.append(
-            InlineKeyboardButton(
-                text=b['title'],
-                callback_data=f"brand_{b['id']}"
-            )
+            [
+                InlineKeyboardButton(
+                    text=b['title'],
+                    callback_data=f"brand_{b['id']}"
+                )
+            ]
         )
 
     inline_keyboard.extend(
