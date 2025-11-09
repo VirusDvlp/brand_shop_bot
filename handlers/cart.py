@@ -28,12 +28,11 @@ async def make_cart_info(user_id):
 
             if good_info:
                 message_text += f"""
-    {i}. {good_info['Название']}
-    Количество: {c['number']}
-    Цента за шт: {good_info['Цена']}
-    Сумма: {get_good_price(good_info['Цена'], c['number'])}
-
-    """
+{i}. {good_info['Название']}
+Количество: {c['number']}
+Цента за шт: {good_info['Цена']}
+Сумма: {get_good_price(good_info['Цена'], c['number'])}
+"""
                 try:
                     total += c['number'] * int(good_info['Цена'])
                 except ValueError:
@@ -78,8 +77,11 @@ async def kill_position(c: types.CallbackQuery):
 
     cart_info = await make_cart_info(c.from_user.id)
 
-    await c.message.answer(
-        cart_info['text'],
+    await c.message.edit_text(
+        text=cart_info['text'],
+    )
+
+    await c.message.edit_reply_markup(
         reply_markup=cart_info['markup']
     )
     
@@ -93,10 +95,14 @@ async def clear_cart(c: types.CallbackQuery):
 
     cart_info = await make_cart_info(c.from_user.id)
 
-    await c.message.answer(
-        cart_info['text'],
+    await c.message.edit_text(
+        text=cart_info['text'],
+    )
+
+    await c.message.edit_reply_markup(
         reply_markup=cart_info['markup']
     )
+    
     
 
     await c.answer()
