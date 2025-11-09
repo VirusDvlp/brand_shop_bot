@@ -224,7 +224,7 @@ async def add_to_cart(c: types.CallbackQuery):
             reply_markup=get_market_markup(
                 goods_data["is_to_right"],
                 goods_data["is_to_left"],
-                page,
+                int(page),
                 goods_data["total_pages"],
                 goods_data["good"]["ID"],
                 brand,
@@ -271,7 +271,7 @@ async def delete_from_cart(c: types.CallbackQuery):
             reply_markup=get_market_markup(
                 goods_data["is_to_right"],
                 goods_data["is_to_left"],
-                page,
+                int(page),
                 goods_data["total_pages"],
                 goods_data["good"]["ID"],
                 brand,
