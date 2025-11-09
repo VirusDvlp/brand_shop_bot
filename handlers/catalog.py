@@ -55,7 +55,7 @@ async def send_brand_list(c: types.CallbackQuery):
 
     await c.message.answer(
         "Выберите бренд",
-        reply_markup=get_brand_list_markup()
+        reply_markup=await get_brand_list_markup()
     )
 
 
