@@ -5,7 +5,7 @@ import os
 import time
 import asyncio
 
-from config import settings, sheet_categories
+from config import settings
 
 from utils.logger import get_bot_logger
 

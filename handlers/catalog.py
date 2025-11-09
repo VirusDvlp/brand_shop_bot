@@ -9,7 +9,6 @@ from database import db
 
 from text import get_good_card_text
 
-from config import sheet_categories
 
 
 def get_good_card_in_catalog(category: int, page: int = 0):
