@@ -62,7 +62,7 @@ class AsyncSheetCacheManager:
 
         cache_file = os.path.join(self.cache_dir, f"cache_{sheet_id}.json")
         with open(cache_file, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
+            json.dump(self.cache[sheet_id], f, ensure_ascii=False, indent=2)
         
         get_bot_logger().info(
             f"[Async] Кэш обновлён для листа '{ws.title}' ({len(data)} записей)"
