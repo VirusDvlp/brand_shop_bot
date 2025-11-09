@@ -74,7 +74,7 @@ class AsyncSheetCacheManager:
         if os.path.exists(cache_file):
             with open(cache_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                self.cache[sheet_id] = {row["id"]: row for row in data}
+                self.cache[sheet_id] = data
             return True
         return False
 
