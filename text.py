@@ -14,4 +14,4 @@ def get_good_card_text(name: str, descr: str, usage: str, volume: str, price: st
 <b>Объем</b>: {volume}
 
 <b>Цена</b>: {price}
-"""
+"""[:1023]
