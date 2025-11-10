@@ -80,7 +80,7 @@ async def send_first_brand_good(c: types.CallbackQuery):
                 name=goods_data["good"]["Название"],
                 descr=goods_data["good"]["Описание"],
                 usage=goods_data["good"]["Показания к применению"],
-                volume=goods_data["good"]["Показания к применению"],
+                volume=goods_data["good"]["Объем"],
                 price=goods_data["good"]["Цена"]
             ),
             parse_mode=ParseMode.HTML,

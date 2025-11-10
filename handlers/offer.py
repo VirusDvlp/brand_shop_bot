@@ -1,7 +1,7 @@
 from aiogram import types, Dispatcher, F
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import StateFilter
-from aiogram.exceptions import TelegramForbiddenError
+from aiogram.exceptions import TelegramBadRequest, TelegramForbiddenError
 
 from datetime import datetime
 
@@ -105,10 +105,14 @@ ID: {m.from_user.id}
             chat_id=settings.ORDERS_CHAT_ID,
             text=message_to_admin
         )
-    except TelegramForbiddenError:
+    except (TelegramForbiddenError, TelegramBadRequest):
         get_bot_logger().error("Не удалось отправить сообщение в чат заказов")
 
     await db.clear_user_cart(m.from_user.id)
+
+    await m.answer(
+        "Заказ успешно создан!"
+    )
 
 
 def register_offer_handlers(dp: Dispatcher):
