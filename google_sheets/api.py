@@ -118,6 +118,8 @@ class AsyncSheetCacheManager:
             value_input_option="USER_ENTERED"
         )
 
+        get_bot_logger().info(f"[Async] Добавлено {len(records)} записей в лист '{ws.title}'")
+
 
 
 cache_manager = AsyncSheetCacheManager(
