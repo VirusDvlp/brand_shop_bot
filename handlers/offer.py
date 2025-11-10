@@ -87,7 +87,7 @@ ID: {m.from_user.id}
             {
                 "Дата и время": now.strftime("%d.%m.%Y %H:%M:%S"),
                 "Имя пользователя": s_data["name"],
-                "ID пользователя": m.from_user.id,
+                "ID пользователя": str(m.from_user.id),
                 "Телефон": phone_number,
                 "ID товара": c["good_id"],
                 "Количество": c["number"]
