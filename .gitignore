@@ -3,3 +3,5 @@ venv
 logging
 **/__pycache__
 service_account.json
+.idea
+.vscode
