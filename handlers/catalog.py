@@ -125,7 +125,7 @@ async def catalog_right(c: types.CallbackQuery):
                 name=goods_data["good"]["Название"],
                 descr=goods_data["good"]["Описание"],
                 usage=goods_data["good"]["Показания к применению"],
-                volume=goods_data["good"]["Показания к применению"],
+                volume=goods_data["good"]["Объем"],
                 price=goods_data["good"]["Цена"]
             ),
             parse_mode=ParseMode.HTML
@@ -171,7 +171,7 @@ async def catalog_left(c: types.CallbackQuery):
                 name=goods_data["good"]["Название"],
                 descr=goods_data["good"]["Описание"],
                 usage=goods_data["good"]["Показания к применению"],
-                volume=goods_data["good"]["Показания к применению"],
+                volume=goods_data["good"]["Объем"],
                 price=goods_data["good"]["Цена"]
             ),
             parse_mode=ParseMode.HTML
@@ -215,7 +215,7 @@ async def add_to_cart(c: types.CallbackQuery):
                 name=goods_data["good"]["Название"],
                 descr=goods_data["good"]["Описание"],
                 usage=goods_data["good"]["Показания к применению"],
-                volume=goods_data["good"]["Показания к применению"],
+                volume=goods_data["good"]["Объем"],
                 price=goods_data["good"]["Цена"]
             ),
             parse_mode=ParseMode.HTML
@@ -262,7 +262,7 @@ async def delete_from_cart(c: types.CallbackQuery):
                 name=goods_data["good"]["Название"],
                 descr=goods_data["good"]["Описание"],
                 usage=goods_data["good"]["Показания к применению"],
-                volume=goods_data["good"]["Показания к применению"],
+                volume=goods_data["good"]["Объем"],
                 price=goods_data["good"]["Цена"]
             ),
             parse_mode=ParseMode.HTML
